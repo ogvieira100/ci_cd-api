@@ -1,0 +1,18 @@
+name: Deployment
+on: [push,workflow_dispatch]
+jobs: 
+  test:
+    runs-on: ubuntu-latest  
+    steps:
+        - name: Checkout Code
+          uses: actions/checkout@v3
+        - name: Setup .NET Core
+          uses: actions/setup-dotnet@v3
+          with:
+            dotnet-version: '9.0.x'
+        - name: Restore Dependencies
+          run: dotnet restore
+        - name: Build Application
+          run: dotnet build --configuration Release --no-restore
+        - name: Run Unit Tests
+          run: dotnet test --no-restore --verbosity normal   
