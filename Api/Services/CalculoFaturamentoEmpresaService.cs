@@ -30,7 +30,7 @@ namespace Api.Services
                 {
                     /*regra de negócio depois do fator*/
                     case ETipoMovimentacao.Entrada:
-                         valorFaturamento += 10;    
+                         valorFaturamento += 100;    
                         break;
                     case ETipoMovimentacao.Saida:
                          valorFaturamento -= 10;
